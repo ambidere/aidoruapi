@@ -101,7 +101,7 @@ const groups = {
         })
       })
     },
-    editGroup ({ state }, payload) {
+    editGroup ({ dispatch, state }, payload) {
       state.processingGroups = true
       state.showDialog = false
 
@@ -117,6 +117,8 @@ const groups = {
         } else {
           //console.log('Update Successful')
           state.processingGroups = false
+          dispatch('getGroups')
+          router.push('/manage/groups')
         }
       })
     },
