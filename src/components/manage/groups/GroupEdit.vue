@@ -123,7 +123,7 @@ export default {
     ])
   },
   beforeRouteUpdate (to, from, next) {
-    console.log('ASDASDASD', this.groupId)
+    //console.log('ASDASDASD', this.groupId)
     this.$store.dispatch('groups/getGroup', this.groupId)
     next()
   }

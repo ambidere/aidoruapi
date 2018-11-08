@@ -105,7 +105,7 @@ export default {
     editGroup: function (key) {
       router.push('/manage/groups/edit/' + key)
     },
-    addGroup: function (key) {
+    addGroup: function () {
       router.push('/manage/groups/add')
     }
   }

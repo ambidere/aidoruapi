@@ -78,7 +78,7 @@ export default {
       let groupNames = _.map(groups, (group) => { return group.enName })
       return _.join(groupNames, ',')
     },
-    addMember: function (key) {
+    addMember: function () {
       router.push('/manage/members/add')
     }
   }
