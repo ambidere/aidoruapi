@@ -1,17 +1,25 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app" dark>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import store from './store'
+import router from './router'
+import { mapGetters } from 'vuex'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: 'App',
+  store,
+  router,
+  computed: {
+    ...mapGetters('accounts', [
+      'loggedIn'
+    ])
+  },
+  created: function () {
+    store.dispatch('accounts/loadCurrentUser')
   }
 }
 </script>
@@ -19,10 +27,10 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
